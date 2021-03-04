@@ -16,12 +16,12 @@ func NewTextInput() *Input {
 	return New(TextInput)
 }
 
-func (i *Input) Value() string {
-	return i.Get("value").String()
+func (i *Input) Autofocus() bool {
+	return i.Get("autofocus").Bool()
 }
 
-func (i *Input) SetValue(v string) {
-	i.Set("value", v)
+func (i *Input) SetAutofocus(b bool) {
+	i.Set("autofocus", b)
 }
 
 func (i *Input) Name() string {
@@ -98,4 +98,28 @@ func (i *Input) SetStep(step string) {
 
 func (i *Input) OnClick(function string) {
 	i.Set("onClick", function)
+}
+
+func (i *Input) Value() string {
+	return i.Get("value").String()
+}
+
+func (i *Input) SetValue(v string) {
+	i.Set("value", v)
+}
+
+func (i *Input) Width() string {
+	return i.Get("width").String()
+}
+
+func (i *Input) SetWidth(v string) {
+	i.Set("width", v)
+}
+
+func (i *Input) Height() string {
+	return i.Get("height").String()
+}
+
+func (i *Input) SetHeight(v string) {
+	i.Set("height", v)
 }
