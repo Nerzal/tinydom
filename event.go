@@ -22,18 +22,14 @@ func (e *Event) StopPropagation() {
 	e.Call("stopPropagation")
 }
 
-func (o *Event) AddEventListener(t string, listener func(Event), args ...interface{}) {
-	if len(args) == 1 {
-		o.Call("addEventListener", t, listener, args[0])
-	} else {
-		o.Call("addEventListener", t, listener)
-	}
+func (e *Event) Code() string {
+	return e.Get("code").String()
 }
 
-func (o *Event) RemoveEventListener(t string, listener func(Event), args ...interface{}) {
-	if len(args) == 1 {
-		o.Call("removeEventListener", t, listener, args[0])
-	} else {
-		o.Call("removeEventListener", t, listener)
-	}
+func (e *Event) Key() string {
+	return e.Get("key").String()
+}
+
+func (e *Event) KeyCode() int {
+	return e.Get("keyCode").Int()
 }

@@ -186,3 +186,35 @@ func (e *Element) RemoveChild(c *Element) *Element {
 func (e *Element) ReplaceChild(newChild, oldChild *Element) *Element {
 	return &Element{e.Call("replaceChild", newChild, oldChild)}
 }
+
+func (e *Element) AddEventListener(t string, listener func(Event), args ...interface{}) {
+	if len(args) == 1 {
+		e.Call("addEventListener", t, listener, args[0])
+	} else {
+		e.Call("addEventListener", t, listener)
+	}
+}
+
+func (e *Element) RemoveEventListener(t string, listener func(Event), args ...interface{}) {
+	if len(args) == 1 {
+		e.Call("removeEventListener", t, listener, args[0])
+	} else {
+		e.Call("removeEventListener", t, listener)
+	}
+}
+
+func (e *Element) Style() *CSS {
+	return &CSS{e.Get("style")}
+}
+
+func (e *Element) Dataset() *Element {
+	return &Element{e.Get("dataset")}
+}
+
+func (e *Element) Blur() {
+	e.Call("blur")
+}
+
+func (e *Element) Focus() {
+	e.Call("focus")
+}
