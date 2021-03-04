@@ -1,4 +1,4 @@
-package form
+package input
 
 type Target string
 

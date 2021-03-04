@@ -4,12 +4,13 @@ import "github.com/Nerzal/tinydom"
 
 type Input struct {
 	*tinydom.Element
+	iType InputType
 }
 
 func New(inputType InputType) *Input {
 	input := tinydom.GetDocument().CreateElement("input")
 	input.SetAttribute("type", string(inputType))
-	return &Input{input}
+	return &Input{Element: input, iType: inputType}
 }
 
 func NewTextInput() *Input {
@@ -22,6 +23,14 @@ func (i *Input) Autofocus() bool {
 
 func (i *Input) SetAutofocus(b bool) {
 	i.Set("autofocus", b)
+}
+
+func (i *Input) Autocomplete() bool {
+	return i.Get("autocomplete").Bool()
+}
+
+func (i *Input) SetAutocomplete(b bool) {
+	i.Set("autocomplete", b)
 }
 
 func (i *Input) Name() string {
@@ -38,6 +47,53 @@ func (i *Input) For() string {
 
 func (i *Input) SetFor(value string) {
 	i.Set("for", value)
+}
+
+func (i *Input) FormEnctype() string {
+	return i.Get("formenctype").String()
+}
+
+func (i *Input) SetFormEnctype(value string) error {
+	if i.iType != SubmitInput {
+		return ErrInvalidAttribute
+	}
+
+	i.Set("formenctype", value)
+	return nil
+}
+
+func (i *Input) FormTarget() string {
+	return i.Get("formtarget").String()
+}
+
+func (i *Input) SetFormTarget(value Target) error {
+	if i.iType != SubmitInput {
+		return ErrInvalidAttribute
+	}
+
+	i.Set("formtarget", value.String())
+	return nil
+}
+
+func (i *Input) FormNoValidate() string {
+	return i.Get("formnovalidate").String()
+}
+
+func (i *Input) SetFormNoValidate(value Target) error {
+	if i.iType != SubmitInput {
+		return ErrInvalidAttribute
+	}
+
+	i.Set("formnovalidate", value.String())
+	return nil
+}
+
+func (i *Input) List() string {
+	return i.Get("list").String()
+}
+
+func (i *Input) SetList(value string) {
+	i.Set("list", value)
 }
 
 func (i *Input) Min() string {

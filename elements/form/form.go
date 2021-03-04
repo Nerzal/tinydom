@@ -11,14 +11,14 @@ func New() *Form {
 	return &Form{result}
 }
 
-func (f *Form) SetTarget(target Target) {
-	f.SetAttribute("target", target.String())
-}
-
 func (f *Form) SetMethod(method Method) {
 	f.SetAttribute("method", method.String())
 }
 
 func (f *Form) SetAction(action string) {
 	f.SetAttribute("action", action)
+}
+
+func (f *Form) SetNoValidate() {
+	f.Set("novalidate", nil)
 }
