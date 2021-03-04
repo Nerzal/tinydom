@@ -18,8 +18,8 @@ func (e *Element) AppendAfter(n *Element) {
 	e.ParentNode().InsertBefore(n, e.NextSibling())
 }
 
-func (e *Element) AppendChild(parent *Element, child *Element) {
-	parent.Call("appendChild", child)
+func (e *Element) AppendChild(child *Element) {
+	e.Call("appendChild", child)
 }
 
 func (e *Element) RemoveAllChildNodes() {
