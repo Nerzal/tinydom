@@ -48,6 +48,10 @@ func (i *Input) Value() string {
 	return i.Get("value").String()
 }
 
-func (i *Input) SetValue(s string) {
-	i.Set("value", s)
+func (i *Input) SetValue(v string) {
+	i.Set("value", v)
+}
+
+func (i *Input) SetName(n string) {
+	i.Set("name", n)
 }

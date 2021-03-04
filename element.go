@@ -22,6 +22,12 @@ func (e *Element) AppendChild(child *Element) {
 	e.Call("appendChild", child)
 }
 
+// AppendChildBr appends the child and adds an additional br
+func (e *Element) AppendChildBr(child *Element) {
+	e.Call("appendChild", child)
+	e.Call("appendChild", GetDocument().CreateElement("br"))
+}
+
 func (e *Element) RemoveAllChildNodes() {
 	for e.HasChildNodes() {
 		e.RemoveChild(e.LastChild())

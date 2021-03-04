@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/Nerzal/tinydom"
+	"github.com/Nerzal/tinydom/elements/form"
 	"github.com/Nerzal/tinydom/elements/input"
 )
 
@@ -28,8 +29,23 @@ func main() {
 	body.AppendChild(br)
 	body.AppendChild(br)
 
-	dateInput := input.New(input.DateInput)
-	body.AppendChild(dateInput.Element)
+	body.AppendChild(br)
+	body.AppendChild(br)
+	body.AppendChild(br)
+	body.AppendChild(br)
+
+	myForm := form.New()
+	label := document.CreateElement("label")
+	label.SetInnerHTML("Name")
+	myForm.AppendChildBr(label)
+	myForm.AppendChildBr(textInput.Element)
+
+	passwordLabel := document.CreateElement("label")
+	passwordInput := input.New(input.PasswordInput)
+	myForm.AppendChildBr(passwordLabel)
+	myForm.AppendChildBr(passwordInput.Element)
+
+	body.AppendChild(myForm.Element)
 
 	wait := make(chan struct{}, 0)
 	<-wait
