@@ -34,6 +34,10 @@ func (e *Element) RemoveAllChildNodes() {
 	}
 }
 
+func (e *Element) SetId(id string) {
+	e.Set("id", id)
+}
+
 func (e *Element) SetAttribute(key, value string) {
 	e.Call("setAttribute", key, value)
 }
