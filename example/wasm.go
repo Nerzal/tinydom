@@ -21,29 +21,25 @@ func main() {
 
 	br := document.CreateElement("br")
 	body.AppendChild(br)
-	body.AppendChild(br)
 
 	textInput := input.NewTextInput()
 	body.AppendChild(textInput.Element)
-
-	body.AppendChild(br)
-	body.AppendChild(br)
-
-	body.AppendChild(br)
-	body.AppendChild(br)
-	body.AppendChild(br)
 	body.AppendChild(br)
 
 	myForm := form.New()
 	label := document.CreateElement("label")
-	label.SetInnerHTML("Name")
+	label.SetInnerHTML("Name:")
 	myForm.AppendChildBr(label)
 	myForm.AppendChildBr(textInput.Element)
 
 	passwordLabel := document.CreateElement("label")
+	passwordLabel.SetInnerHTML("Password:")
 	passwordInput := input.New(input.PasswordInput)
 	myForm.AppendChildBr(passwordLabel)
 	myForm.AppendChildBr(passwordInput.Element)
+
+	submitInput := input.New(input.SubmitInput)
+	myForm.AppendChildBr(submitInput.Element)
 
 	body.AppendChild(myForm.Element)
 
