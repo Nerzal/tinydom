@@ -4,6 +4,17 @@ TinyGo compatible DOM manipulation library. For use in WASM
 
 This library is heavily based on [godom](https://github.com/siongui/godom). It was changed to be usable in [TinyGo](https://tinygo.org) projects.
 
+TinyDom wraps nearly every function of `syscall/js`.
+
+Also TimyDom provides some wrapper around html elements, like the following:
+
+* form
+* input
+* label
+* output
+* fieldset
+
+
 ## Example Usage
 
 ```go
