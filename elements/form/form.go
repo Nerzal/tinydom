@@ -1,6 +1,10 @@
 package form
 
-import "github.com/Nerzal/tinydom"
+import (
+	"strings"
+
+	"github.com/Nerzal/tinydom"
+)
 
 type Form struct {
 	*tinydom.Element
@@ -16,11 +20,12 @@ func (f *Form) Append(elements ...*tinydom.Element) error {
 	for i := range elements {
 		element := elements[i]
 
-		switch element.TagName() {
+		switch strings.ToLower(element.TagName()) {
 		case "input", "label", "select", "textarea", "div", "button", "fieldset", "legend", "datalist", "output", "option", "optgroup":
-			f.AppendChild(element)
-			return nil
+			// println("appending:", element.TagName())
+			f.AppendChildBr(element)
 		default:
+			println(element.TagName())
 			return ErrInvalidTagAppended
 		}
 	}
