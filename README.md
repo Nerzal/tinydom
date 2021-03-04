@@ -40,3 +40,5 @@ func main() {
 Simply use the makefile :) 
 
 > make example-app
+
+## Example Result:

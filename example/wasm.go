@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/Nerzal/tinydom"
-	"github.com/Nerzal/tinydom/elements"
+	"github.com/Nerzal/tinydom/elements/input"
 )
 
 func main() {
@@ -18,8 +18,18 @@ func main() {
 	h2.SetInnerHTML("Yes! I do compile with TinyGo!")
 	body.AppendChild(h2)
 
-	input := elements.NewTextInput()
-	body.AppendChild(input.Element)
+	br := document.CreateElement("br")
+	body.AppendChild(br)
+	body.AppendChild(br)
+
+	textInput := input.NewTextInput()
+	body.AppendChild(textInput.Element)
+
+	body.AppendChild(br)
+	body.AppendChild(br)
+
+	dateInput := input.New(input.DateInput)
+	body.AppendChild(dateInput.Element)
 
 	wait := make(chan struct{}, 0)
 	<-wait
