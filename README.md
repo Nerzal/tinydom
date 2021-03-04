@@ -69,5 +69,6 @@ Simply use the makefile :)
 
 ## Example Result:
 
-![grafik](https://user-images.githubusercontent.com/9110370/110025878-3f5e9f00-7d30-11eb-9f9e-8cf29c495eff.png)
+![grafik](https://user-images.githubusercontent.com/9110370/110029225-7931a480-7d34-11eb-9202-d3af100bdf98.png)
+
 
