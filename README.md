@@ -82,3 +82,7 @@ Note: The example uses a wasm_exec.js from tinygo 1.17 :)
 ## Example Result
 
 ![grafik](https://user-images.githubusercontent.com/9110370/110029225-7931a480-7d34-11eb-9202-d3af100bdf98.png)
+
+Example Video is Big Buck Bunny from [blender](https://peach.blender.org/about/)
+
+Example Video License: https://creativecommons.org/licenses/by/3.0/

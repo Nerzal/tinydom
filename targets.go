@@ -1,4 +1,4 @@
-package input
+package tinydom
 
 type Target string
 

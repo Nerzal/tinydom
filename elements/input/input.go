@@ -66,7 +66,7 @@ func (i *Input) FormTarget() string {
 	return i.Get("formtarget").String()
 }
 
-func (i *Input) SetFormTarget(value Target) error {
+func (i *Input) SetFormTarget(value tinydom.Target) error {
 	if i.iType != SubmitInput {
 		return ErrInvalidAttribute
 	}
@@ -79,12 +79,12 @@ func (i *Input) FormNoValidate() string {
 	return i.Get("formnovalidate").String()
 }
 
-func (i *Input) SetFormNoValidate(value Target) error {
+func (i *Input) SetFormNoValidate() error {
 	if i.iType != SubmitInput {
 		return ErrInvalidAttribute
 	}
 
-	i.Set("formnovalidate", value.String())
+	i.Set("formnovalidate", "")
 	return nil
 }
 
@@ -153,7 +153,7 @@ func (i *Input) SetStep(step string) {
 }
 
 func (i *Input) OnClick(function string) {
-	i.Set("onClick", function)
+	i.Set("onclick", function)
 }
 
 func (i *Input) Value() string {

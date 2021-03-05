@@ -58,16 +58,16 @@ func NewVideoParams(
 }
 
 func (v *Video) SetAutoplay() {
-	v.Set("autoplay", true)
+	v.Set("autoplay", "true")
 
 }
 
 func (v *Video) SetMuted() {
-	v.Set("muted", true)
+	v.Set("muted", "true")
 }
 
 func (v *Video) SetControl() {
-	v.Set("control", true)
+	v.Set("control", "true")
 }
 
 func (v *Video) SetAltText() {

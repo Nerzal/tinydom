@@ -1,6 +1,8 @@
 package tinydom
 
-import "syscall/js"
+import (
+	"syscall/js"
+)
 
 type Element struct {
 	js.Value
@@ -22,10 +24,22 @@ func (e *Element) AppendChild(child *Element) {
 	e.Call("appendChild", child)
 }
 
+func (e *Element) AppendChildren(children ...*Element) {
+	for _, child := range children {
+		e.AppendChild(child)
+	}
+}
+
 // AppendChildBr appends the child and adds an additional br
 func (e *Element) AppendChildBr(child *Element) {
 	e.Call("appendChild", child)
 	e.Call("appendChild", GetDocument().CreateElement("br"))
+}
+
+func (e *Element) AppendChildrenBr(children ...*Element) {
+	for _, child := range children {
+		e.AppendChildBr(child)
+	}
 }
 
 func (e *Element) Br() {
@@ -192,20 +206,12 @@ func (e *Element) ReplaceChild(newChild, oldChild *Element) *Element {
 	return &Element{e.Call("replaceChild", newChild, oldChild)}
 }
 
-func (e *Element) AddEventListener(t string, listener func(Event), args ...interface{}) {
-	if len(args) == 1 {
-		e.Call("addEventListener", t, listener, args[0])
-	} else {
-		e.Call("addEventListener", t, listener)
-	}
+func (e *Element) AddEventListener(t string, listener js.Func) {
+	e.Call("addEventListener", t, listener)
 }
 
-func (e *Element) RemoveEventListener(t string, listener func(Event), args ...interface{}) {
-	if len(args) == 1 {
-		e.Call("removeEventListener", t, listener, args[0])
-	} else {
-		e.Call("removeEventListener", t, listener)
-	}
+func (e *Element) RemoveEventListener(t string, listener js.Func) {
+	e.Call("removeEventListener", t, listener)
 }
 
 func (e *Element) Style() *CSS {
