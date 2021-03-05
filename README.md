@@ -13,6 +13,7 @@ Also TimyDom provides some wrapper around html elements, like the following:
 * label
 * output
 * fieldset
+* video
 
 ## Example Usage
 
