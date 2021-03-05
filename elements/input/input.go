@@ -17,6 +17,12 @@ func NewTextInput() *Input {
 	return New(TextInput)
 }
 
+func FromElement(e *tinydom.Element) *Input {
+	_, inputType := e.GetAttribute("type")
+
+	return &Input{Element: e, iType: InputType(inputType)}
+}
+
 func (i *Input) Autofocus() bool {
 	return i.Get("autofocus").Bool()
 }
