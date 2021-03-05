@@ -42,5 +42,5 @@ func (f *Form) SetAction(action string) {
 }
 
 func (f *Form) SetNoValidate() {
-	f.Set("novalidate", nil)
+	f.Set("novalidate", false)
 }

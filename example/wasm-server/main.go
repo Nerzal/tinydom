@@ -25,6 +25,10 @@ func main() {
 			resp.Header().Set("content-type", "image/jpeg")
 		}
 
+		if strings.HasSuffix(req.URL.Path, ".mp4") {
+			resp.Header().Set("content-type", "video/mp4")
+		}
+
 		fs.ServeHTTP(resp, req)
 	}))
 }

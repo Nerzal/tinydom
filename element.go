@@ -28,6 +28,11 @@ func (e *Element) AppendChildBr(child *Element) {
 	e.Call("appendChild", GetDocument().CreateElement("br"))
 }
 
+func (e *Element) Br() {
+	br := GetDocument().CreateElement("br")
+	e.AppendChild(br)
+}
+
 func (e *Element) RemoveAllChildNodes() {
 	for e.HasChildNodes() {
 		e.RemoveChild(e.LastChild())

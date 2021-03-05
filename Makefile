@@ -5,4 +5,5 @@ example-app:
 	cp example/wasm_exec.js example/html/
 	cp example/wasm.js example/html/
 	cp example/index.html example/html/
+	cp example/video.mp4 example/html/
 	go run example/wasm-server/main.go
