@@ -58,7 +58,7 @@ func (e *Element) SetId(id string) *Element {
 	return e
 }
 
-func (e *Element) SetAttribute(key, value string) *Element {
+func (e *Element) SetAttribute(key, value interface{}) *Element {
 	e.Call("setAttribute", key, value)
 	return e
 }

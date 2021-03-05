@@ -11,7 +11,7 @@ func New() *Label {
 }
 
 func (l *Label) SetFor(value string) *Label {
-	l.Set("for", value)
+	l.SetAttribute("for", value)
 	return l
 }
 

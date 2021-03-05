@@ -24,27 +24,32 @@ func FromElement(e *tinydom.Element) *Input {
 }
 
 func (i *Input) Autofocus() bool {
-	return i.Get("autofocus").Bool()
+	result, _ := i.GetAttribute("autofocus")
+	return result
 }
 
-func (i *Input) SetAutofocus(b bool) {
-	i.Set("autofocus", b)
+func (i *Input) SetAutofocus(b bool) *Input {
+	i.SetAttribute("autofocus", b)
+	return i
 }
 
 func (i *Input) Autocomplete() bool {
-	return i.Get("autocomplete").Bool()
+	result, _ := i.GetAttribute("autocomplete")
+	return result
 }
 
-func (i *Input) SetAutocomplete(b bool) {
-	i.Set("autocomplete", b)
+func (i *Input) SetAutocomplete(b bool) *Input {
+	i.SetAttribute("autocomplete", b)
+	return i
 }
 
 func (i *Input) For() string {
 	return i.Get("for").String()
 }
 
-func (i *Input) SetFor(value string) {
-	i.Set("for", value)
+func (i *Input) SetFor(value string) *Input {
+	i.SetAttribute("for", value)
+	return i
 }
 
 func (i *Input) FormEnctype() string {
@@ -90,90 +95,97 @@ func (i *Input) List() string {
 	return i.Get("list").String()
 }
 
-func (i *Input) SetList(value string) {
+func (i *Input) SetList(value string) *Input {
 	i.Set("list", value)
+	return i
 }
 
 func (i *Input) Min() string {
 	return i.Get("min").String()
 }
 
-func (i *Input) SetMin(min string) {
+func (i *Input) SetMin(min string) *Input {
 	i.Set("min", min)
+	return i
 }
 
 func (i *Input) MaxLength() string {
 	return i.Get("maxlength").String()
 }
 
-func (i *Input) SetMaxLength(length string) {
+func (i *Input) SetMaxLength(length string) *Input {
 	i.Set("maxlength", length)
+	return i
 }
 
 func (i *Input) Max() string {
 	return i.Get("max").String()
 }
 
-func (i *Input) SetMax(max string) {
+func (i *Input) SetMax(max string) *Input {
 	i.Set("max", max)
+	return i
 }
 
 func (i *Input) Checked() string {
 	return i.Get("checked").String()
 }
 
-func (i *Input) SetChecked(checked string) {
+func (i *Input) SetChecked(checked string) *Input {
 	i.Set("checked", checked)
+	return i
 }
 
 func (i *Input) Required() string {
 	return i.Get("required").String()
 }
 
-func (i *Input) SetRequired(required string) {
+func (i *Input) SetRequired(required string) *Input {
 	i.Set("required", required)
+	return i
 }
 
 func (i *Input) Pattern() string {
 	return i.Get("pattern").String()
 }
 
-func (i *Input) SetPattern(pattern string) {
+func (i *Input) SetPattern(pattern string) *Input {
 	i.Set("pattern", pattern)
+	return i
 }
 
 func (i *Input) Step() string {
 	return i.Get("step").String()
 }
 
-func (i *Input) SetStep(step string) {
+func (i *Input) SetStep(step string) *Input {
 	i.Set("step", step)
-}
-
-func (i *Input) OnClick(function string) {
-	i.Set("onclick", function)
+	return i
 }
 
 func (i *Input) Value() string {
 	return i.Get("value").String()
 }
 
-func (i *Input) SetValue(v string) {
+func (i *Input) SetValue(v string) *Input {
 	i.Set("value", v)
+	return i
 }
 
 func (i *Input) Width() string {
 	return i.Get("width").String()
 }
 
-func (i *Input) SetWidth(v string) {
+func (i *Input) SetWidth(v string) *Input {
 	i.Set("width", v)
+	return i
 }
 
 func (i *Input) Height() string {
 	return i.Get("height").String()
 }
 
-func (i *Input) SetHeight(v string) {
+func (i *Input) SetHeight(v string) *Input {
 	i.Set("height", v)
+	return i
 }
