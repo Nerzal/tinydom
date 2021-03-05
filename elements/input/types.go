@@ -3,7 +3,6 @@ package input
 type InputType string
 
 const (
-	Password      InputType = "password"
 	ButtonInput   InputType = "button"
 	CheckboxInput InputType = "checkbox"
 	ColorInput    InputType = "color"

@@ -7,6 +7,7 @@ import (
 	"github.com/Nerzal/tinydom/elements/form"
 	"github.com/Nerzal/tinydom/elements/href"
 	"github.com/Nerzal/tinydom/elements/input"
+	"github.com/Nerzal/tinydom/elements/label"
 	"github.com/Nerzal/tinydom/elements/media"
 )
 
@@ -32,17 +33,18 @@ func main() {
 	body.Br()
 
 	myForm := form.New()
-	label := document.CreateElement("label")
-	label.SetInnerHTML("Name:")
+
+	nameLabel := label.New()
+	nameLabel.SetInnerHTML("Name:")
 	textInput := input.NewTextInput()
 
-	passwordLabel := document.CreateElement("label")
+	passwordLabel := label.New()
 	passwordLabel.SetInnerHTML("Password:")
 	passwordInput := input.New(input.PasswordInput)
 
 	submitInput := input.New(input.SubmitInput)
 
-	err := myForm.Append(label, textInput.Element, passwordLabel, passwordInput.Element, submitInput.Element)
+	err := myForm.Append(nameLabel.Element, textInput.Element, passwordLabel.Element, passwordInput.Element, submitInput.Element)
 	if err != nil {
 		println(err.Error())
 	}
@@ -54,7 +56,6 @@ func main() {
 	largeButton := input.New(input.ButtonInput)
 	largeButton.SetValue("Large")
 	largeButton.AddEventListener("click", js.FuncOf(large))
-	println("added eventListener")
 
 	smallButton := input.New(input.ButtonInput)
 	smallButton.SetValue("Small")
