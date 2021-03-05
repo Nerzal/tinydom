@@ -33,14 +33,17 @@ func (f *Form) Append(elements ...*tinydom.Element) error {
 	return nil
 }
 
-func (f *Form) SetMethod(method Method) {
+func (f *Form) SetMethod(method Method) *Form {
 	f.SetAttribute("method", method.String())
+	return f
 }
 
-func (f *Form) SetAction(action string) {
+func (f *Form) SetAction(action string) *Form {
 	f.SetAttribute("action", action)
+	return f
 }
 
-func (f *Form) SetNoValidate() {
+func (f *Form) SetNoValidate() *Form {
 	f.Set("novalidate", false)
+	return f
 }

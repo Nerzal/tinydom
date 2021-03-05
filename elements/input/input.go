@@ -33,14 +33,6 @@ func (i *Input) SetAutocomplete(b bool) {
 	i.Set("autocomplete", b)
 }
 
-func (i *Input) Name() string {
-	return i.Get("name").String()
-}
-
-func (i *Input) SetName(n string) {
-	i.Set("name", n)
-}
-
 func (i *Input) For() string {
 	return i.Get("for").String()
 }

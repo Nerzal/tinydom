@@ -53,16 +53,19 @@ func (e *Element) RemoveAllChildNodes() {
 	}
 }
 
-func (e *Element) SetId(id string) {
+func (e *Element) SetId(id string) *Element {
 	e.Set("id", id)
+	return e
 }
 
-func (e *Element) SetAttribute(key, value string) {
+func (e *Element) SetAttribute(key, value string) *Element {
 	e.Call("setAttribute", key, value)
+	return e
 }
 
-func (e *Element) SetInnerHTML(value string) {
+func (e *Element) SetInnerHTML(value string) *Element {
 	e.Set("innerHTML", value)
+	return e
 }
 
 func (e *Element) InnerHTML() string {
@@ -73,8 +76,9 @@ func (e *Element) OuterHTML() string {
 	return e.Get("outerHTML").String()
 }
 
-func (e *Element) SetOuterHTML(html string) {
+func (e *Element) SetOuterHTML(html string) *Element {
 	e.Set("outerHTML", html)
+	return e
 }
 
 func (e *Element) TagName() string {
@@ -154,8 +158,17 @@ func (e *Element) NodeValue() string {
 	return e.Get("nodeValue").String()
 }
 
-func (e *Element) SetNodeValue(s string) {
+func (e *Element) SetNodeValue(s string) *Element {
 	e.Set("nodeValue", s)
+	return e
+}
+func (e *Element) Name() string {
+	return e.Get("name").String()
+}
+
+func (e *Element) SetName(n string) *Element {
+	e.Set("name", n)
+	return e
 }
 
 func (e *Element) ParentNode() *Element {
@@ -166,8 +179,9 @@ func (e *Element) TextContent() string {
 	return e.Get("textContent").String()
 }
 
-func (e *Element) SetTextContent(s string) {
+func (e *Element) SetTextContent(s string) *Element {
 	e.Set("textContent", s)
+	return e
 }
 
 func (e *Element) Contains(n *Element) bool {
@@ -206,12 +220,14 @@ func (e *Element) ReplaceChild(newChild, oldChild *Element) *Element {
 	return &Element{e.Call("replaceChild", newChild, oldChild)}
 }
 
-func (e *Element) AddEventListener(t string, listener js.Func) {
+func (e *Element) AddEventListener(t string, listener js.Func) *Element {
 	e.Call("addEventListener", t, listener)
+	return e
 }
 
-func (e *Element) RemoveEventListener(t string, listener js.Func) {
+func (e *Element) RemoveEventListener(t string, listener js.Func) *Element {
 	e.Call("removeEventListener", t, listener)
+	return e
 }
 
 func (e *Element) Style() *CSS {
@@ -222,10 +238,12 @@ func (e *Element) Dataset() *Element {
 	return &Element{e.Get("dataset")}
 }
 
-func (e *Element) Blur() {
+func (e *Element) Blur() *Element {
 	e.Call("blur")
+	return e
 }
 
-func (e *Element) Focus() {
+func (e *Element) Focus() *Element {
 	e.Call("focus")
+	return e
 }

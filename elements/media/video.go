@@ -57,37 +57,43 @@ func NewVideoParams(
 	return result
 }
 
-func (v *Video) SetAutoplay() {
+func (v *Video) SetAutoplay() *Video {
 	v.Set("autoplay", "true")
-
+	return v
 }
 
-func (v *Video) SetMuted() {
+func (v *Video) SetMuted() *Video {
 	v.Set("muted", "true")
+	return v
 }
 
-func (v *Video) SetControl() {
+func (v *Video) SetControl() *Video {
 	v.Set("control", "true")
+	return v
 }
 
-func (v *Video) SetAltText() {
+func (v *Video) SetAltText() *Video {
 	v.SetInnerHTML(videoAlt)
+	return v
 }
 
-func (v *Video) Reload() {
+func (v *Video) Reload() *Video {
 	v.Call("load")
+	return v
 }
 
-func (v *Video) SetSource(source *VideoSource) {
+func (v *Video) SetSource(source *VideoSource) *Video {
 	src := tinydom.GetDocument().CreateElement("source")
 	src.Set("src", source.Source)
 	src.Set("type", source.Type)
 
 	v.AppendChild(src)
+	return v
 }
 
-func (v *Video) SetWidth(width int) {
+func (v *Video) SetWidth(width int) *Video {
 	v.Set("width", strconv.Itoa(width))
+	return v
 }
 
 func (v *Video) Width() (int, error) {
@@ -100,8 +106,9 @@ func (v *Video) Width() (int, error) {
 	return result, nil
 }
 
-func (v *Video) SetHeight(height int) {
+func (v *Video) SetHeight(height int) *Video {
 	v.Set("height", strconv.Itoa(height))
+	return v
 }
 
 func (v *Video) Height() (int, error) {
