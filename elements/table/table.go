@@ -39,3 +39,7 @@ func (t *Table) SetBody(id ...string) *Table {
 
 	return t
 }
+
+func (t *Table) Body() *tinydom.Element {
+	return t.FindChildNode("tbody")
+}

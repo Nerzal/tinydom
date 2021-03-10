@@ -138,6 +138,17 @@ func (e *Element) ChildNodes() []*Element {
 	return nodes
 }
 
+func (e *Element) FindChildNode(tag string) *Element {
+	children := e.ChildNodes()
+	for _, child := range children {
+		if child.TagName() == tag {
+			return child
+		}
+	}
+
+	return nil
+}
+
 func (e *Element) FirstChild() *Element {
 	return &Element{e.Get("firstChild")}
 }
