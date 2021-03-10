@@ -27,16 +27,8 @@ func (t *Table) SetHeader(header ...string) *Table {
 	return t
 }
 
-func (t *Table) SetBody(id ...string) *Table {
-	doc := tinydom.GetDocument()
-	body := doc.CreateElement("tbody")
-
-	if len(id) > 0 {
-		body.SetId(id[0])
-	}
-
-	t.AppendChild(body)
-
+func (t *Table) SetBody(element *tinydom.Element) *Table {
+	t.AppendChild(element)
 	return t
 }
 
