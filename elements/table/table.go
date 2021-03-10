@@ -19,7 +19,7 @@ func (t *Table) SetHeader(header ...string) *Table {
 	head.AppendChild(tr)
 
 	for _, thead := range header {
-		headElement := doc.CreateElement(thead)
+		headElement := doc.CreateElement("th").SetInnerHTML(thead)
 		tr.AppendChild(headElement)
 	}
 
