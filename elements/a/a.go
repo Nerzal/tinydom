@@ -21,7 +21,7 @@ func New(href, description string) *A {
 }
 
 func (a *A) SetTarget(value string) *A {
-	a.Element.SetAttribute("target", value)
+	a.SetAttribute("target", value)
 	return a
 }
 
@@ -42,7 +42,7 @@ func (a *A) SetRel(values ...Rel) *A {
 		}
 	}
 
-	a.Element.SetAttribute("rel", value)
+	a.SetAttribute("rel", value)
 	return a
 }
 
