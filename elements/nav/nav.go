@@ -5,11 +5,14 @@ import (
 	"github.com/Nerzal/tinydom/elements/li"
 )
 
+// Nav is a nav element
+// See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav for reference
 type Nav struct {
 	*tinydom.Element
 	ulElement *tinydom.Element
 }
 
+// New creates a new instance of Nav
 func New() *Nav {
 	doc := tinydom.GetDocument()
 	element := doc.CreateElement("nav")

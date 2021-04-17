@@ -4,6 +4,7 @@ import (
 	"syscall/js"
 
 	"github.com/Nerzal/tinydom"
+	"github.com/Nerzal/tinydom/elements/a"
 	"github.com/Nerzal/tinydom/elements/form"
 	"github.com/Nerzal/tinydom/elements/href"
 	"github.com/Nerzal/tinydom/elements/input"
@@ -76,8 +77,10 @@ func main() {
 	link := href.New("https://www.bigbuckbunny.org/", "Big Buck Bunny")
 	body.AppendChild(link.Element)
 
-	wait := make(chan struct{}, 0)
-	<-wait
+	aElement := a.New("https://google.com", "Jub")
+	body.AppendChild(aElement.Element)
+
+	select {}
 }
 
 func large(this js.Value, args []js.Value) interface{} {
