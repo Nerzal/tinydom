@@ -26,7 +26,7 @@ func New() *Nav {
 	}
 }
 
-func (n *Nav) AppendListItems(item *li.Li) *Nav {
+func (n *Nav) AppendListItem(item *li.Li) *Nav {
 	n.ulElement.AppendChild(item.Element)
 	return n
 }
