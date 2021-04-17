@@ -42,7 +42,7 @@ func (a *A) SetRel(values ...Rel) *A {
 		}
 	}
 
-	a.SetAttribute("rel", value)
+	a.SetAttribute("rel", string(value))
 	return a
 }
 
