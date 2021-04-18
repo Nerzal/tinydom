@@ -94,8 +94,8 @@ func (e *Element) AppendClass(values ...string) error {
 	return nil
 }
 
-func (e *Element) Class(name string) (bool, []string) {
-	exists, attributeValues := e.GetAttribute(name)
+func (e *Element) Class() (bool, []string) {
+	exists, attributeValues := e.GetAttribute("class")
 	if !exists {
 		return false, nil
 	}
