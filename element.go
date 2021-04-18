@@ -1,6 +1,7 @@
 package tinydom
 
 import (
+	"errors"
 	"strings"
 	"syscall/js"
 )
@@ -66,6 +67,31 @@ func (e *Element) SetAttribute(key, value interface{}) *Element {
 
 func (e *Element) SetClass(values ...string) *Element {
 	return e.SetMultiValueAttribute("class", values...)
+}
+
+// ErrClassAlreadyExisting is being thrown when trying to append the same class multiple times
+var ErrClassAlreadyExisting = errors.New("tried to append class multiple times")
+
+func (e *Element) AppendClass(values ...string) error {
+	existing, currentClasses := e.Class()
+
+	if !existing {
+		e.SetClass(values...)
+		return nil
+	}
+
+	for _, newClass := range values {
+		for _, existingclass := range currentClasses {
+			if newClass == existingclass {
+				return ErrClassAlreadyExisting
+			}
+		}
+	}
+
+	newClass := append(currentClasses, values...)
+	e.SetClass(newClass...)
+
+	return nil
 }
 
 func (e *Element) Class(name string) (bool, []string) {

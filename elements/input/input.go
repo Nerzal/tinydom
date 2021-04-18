@@ -1,6 +1,8 @@
 package input
 
-import "github.com/Nerzal/tinydom"
+import (
+	"github.com/Nerzal/tinydom"
+)
 
 type Input struct {
 	*tinydom.Element
