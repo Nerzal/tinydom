@@ -1,6 +1,7 @@
 package tinydom
 
 import (
+	"strings"
 	"syscall/js"
 )
 
@@ -60,6 +61,43 @@ func (e *Element) SetId(id string) *Element {
 
 func (e *Element) SetAttribute(key, value interface{}) *Element {
 	e.Call("setAttribute", key, value)
+	return e
+}
+
+func (e *Element) SetClass(values ...string) *Element {
+	return e.SetMultiValueAttribute("class", values...)
+}
+
+func (e *Element) Class(name string) (bool, []string) {
+	exists, attributeValues := e.GetAttribute(name)
+	if !exists {
+		return false, nil
+	}
+
+	splittedValues := strings.Split(attributeValues, " ")
+
+	result := make([]string, len(attributeValues))
+	for i, value := range splittedValues {
+		result[i] = value
+	}
+
+	return true, result
+}
+
+func (e *Element) SetMultiValueAttribute(attributeName string, values ...string) *Element {
+	var value string
+
+	valueCount := len(values)
+
+	for i, rel := range values {
+		value += rel
+
+		if i < valueCount {
+			value += " "
+		}
+	}
+
+	e.SetAttribute(attributeName, value)
 	return e
 }
 
