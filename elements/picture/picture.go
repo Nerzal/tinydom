@@ -44,6 +44,10 @@ func New(image *img.Img, sources ...*Source) *Picture {
 }
 
 func (p *Picture) AppendSources(sources ...*Source) *Picture {
+	if sources == nil {
+		return p
+	}
+
 	for _, source := range sources {
 		p.AppendChild(source.Element)
 	}
