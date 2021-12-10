@@ -29,6 +29,10 @@ func (d *Document) CreateTextNode(textContent string) *Element {
 	return &Element{d.Call("createTextNode", textContent)}
 }
 
+func (d *Document) CreateDocumentFragment() *Element {
+	return &Element{d.Call("createDocumentFragment")}
+}
+
 func (d *Document) GetElementById(id string) *Element {
 	return &Element{d.Call("getElementById", id)}
 }
